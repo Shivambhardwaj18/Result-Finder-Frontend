@@ -20,15 +20,16 @@ app.get("/", (req, res) => res.json({ version: "v1", status: "healthy" }));
 
 const PORT = 4000;
 
-const server = new ApolloServer({
+const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
   introspection: true,
 });
 
-server.applyMiddleware({ app });
+apolloServer.applyMiddleware({ app });
 
-app.listen({ port: process.env.PORT }, () => {
+let server = app.listen({ port: process.env.PORT }, () => {
   console.log(chalk.blue("server up"));
 });
+server.timeout = 30000000000000;
