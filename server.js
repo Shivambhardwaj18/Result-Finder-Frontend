@@ -18,8 +18,6 @@ const app = express();
 app.use(cors());
 app.get("/", (req, res) => res.json({ version: "v1", status: "healthy" }));
 
-const PORT = 4000;
-
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
