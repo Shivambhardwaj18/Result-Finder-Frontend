@@ -30,4 +30,4 @@ apolloServer.applyMiddleware({ app });
 let server = app.listen({ port: process.env.PORT }, () => {
   console.log(chalk.blue("server up"));
 });
-server.timeout = 30000000000000;
+server.timeout = 2147483647;
